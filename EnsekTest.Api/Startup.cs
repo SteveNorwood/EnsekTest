@@ -28,7 +28,7 @@ namespace EnsekTest.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // Need to inject db context here
-            services.AddDbContext<EnsekTestContext>(options => options.UseSqlite("|DataEnsekTest.sqlite"));
+            services.AddDbContext<EnsekTestContext>(options => options.UseSqlite("Filename=EnsekTest.sqlite"));
 
             services.AddControllers();
         }

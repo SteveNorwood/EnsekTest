@@ -22,12 +22,11 @@ namespace EnsekTest.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Seeding
+            // Uncomment the below code if you need to debug the database seeding
+            if (!System.Diagnostics.Debugger.IsAttached)
+                System.Diagnostics.Debugger.Launch();
             if (Database.IsSqlite())
             {
-                // Uncomment the below code if you need to debug the database seeding
-                //if (!System.Diagnostics.Debugger.IsAttached)
-                //    System.Diagnostics.Debugger.Launch();
-
                 // Need to get a reference to the valid accounts for seeding the meter readings
                 Account[] accounts = SeedAccountData();
                 List<int> validAccounts = accounts.Select(x => x.Id).Distinct().ToList();
